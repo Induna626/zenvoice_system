@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zenvoice - Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="dashboard-container">
+    <header>
+      <h1>Dashboard</h1>
+      <p>Welcome to Zenvoice Invoice Tracking System</p>
+      <button id="logout-button">Logout</button>
+    </header>
+    <div class="metrics">
+      <div class="metric-card">
+        <h2>Approved Invoices</h2>
+        <p id="approved-count">0</p>
+      </div>
+      <div class="metric-card">
+        <h2>Pending Invoices</h2>
+        <p id="pending-count">0</p>
+      </div>
+      <div class="metric-card">
+        <h2>Rejected Invoices</h2>
+        <p id="rejected-count">0</p>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zenvoice - Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="dashboard-container">
+    <!-- Left Pane -->
+    <div class="left-pane">
+      <div class="profile-section">
+        <img src="profile.png" alt="Profile Picture" class="profile-picture">
+        <h3>Admin</h3>
+        <p>admin@zenvoice.com</p>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#" class="active">Dashboard</a></li>
+          <li><a href="#">Invoices</a></li>
+          <li><a href="#">Reports</a></li>
+          <li><a href="#">Settings</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <header>
+        <h1>Dashboard</h1>
+        <button id="logout-button">Logout</button>
+      </header>
+
+      <!-- Metrics -->
+      <div class="metrics">
+        <div class="metric-card">
+          <h2>Approved Invoices</h2>
+          <p id="approved-count">25</p>
+        </div>
+        <div class="metric-card">
+          <h2>Pending Invoices</h2>
+          <p id="pending-count">10</p>
+        </div>
+        <div class="metric-card">
+          <h2>Rejected Invoices</h2>
+          <p id="rejected-count">5</p>
+        </div>
+      </div>
+
+      <!-- Recent Invoices Table -->
+      <div class="recent-invoices">
+        <h2>Recent Invoices</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Invoice ID</th>
+              <th>Date</th>
+              <th>Amount</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>#1001</td>
+              <td>2023-10-01</td>
+              <td>R1,2000 000</td>
+              <td><span class="status approved">Approved</span></td>
+            </tr>
+            <tr>
+              <td>#1002</td>
+              <td>2023-10-02</td>
+              <td>R800 000</td>
+              <td><span class="status pending">Pending</span></td>
+            </tr>
+            <tr>
+              <td>#1003</td>
+              <td>2023-10-03</td>
+              <td>R1,500 000</td>
+              <td><span class="status rejected">Rejected</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="action-buttons">
+        <button id="create-invoice">Create New Invoice</button>
+        <button id="export-data">Export Data</button>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

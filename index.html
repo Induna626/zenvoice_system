@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zenvoice - Login</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-header">
+        <img src="Logo.jpeg" alt="Zenvoice Logo">  
+      <h1>Zenvoice</h1>
+      <p>Invoice Tracking System</p>
+    </div>
+    <form id="login-form">
+      <div class="input-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+      <div class="input-group">
+        <label for="password">Password</label>
+        <div class="password-wrapper">
+          <input type="password" id="password" name="password" required>
+          <span class="toggle-password" onclick="togglePasswordVisibility()">👁️</span>
+        </div>
+      </div>
+      <div class="options">
+        <label>
+          <input type="checkbox" id="remember-me"> Remember Me
+        </label>
+        <a href="forgot-password.html">Forgot Password?</a>
+      </div>
+      <button type="submit">Login</button>
+    </form>
+    <p class="error-message" id="error-message"></p>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
