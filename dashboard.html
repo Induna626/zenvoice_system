@@ -1,128 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zenvoice - Dashboard</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PO Management Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css"> <!-- Link to the external CSS file -->
 </head>
 <body>
-  <div class="dashboard-container">
-    <header>
-      <h1>Dashboard</h1>
-      <p>Welcome to Zenvoice Invoice Tracking System</p>
-      <button id="logout-button">Logout</button>
-    </header>
-    <div class="metrics">
-      <div class="metric-card">
-        <h2>Approved Invoices</h2>
-        <p id="approved-count">0</p>
-      </div>
-      <div class="metric-card">
-        <h2>Pending Invoices</h2>
-        <p id="pending-count">0</p>
-      </div>
-      <div class="metric-card">
-        <h2>Rejected Invoices</h2>
-        <p id="rejected-count">0</p>
-      </div>
-    </div>
-  </div>
-  <script src="script.js"></script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zenvoice - Dashboard</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="dashboard-container">
-    <!-- Left Pane -->
-    <div class="left-pane">
-      <div class="profile-section">
-        <img src="profile.png" alt="Profile Picture" class="profile-picture">
-        <h3>Admin</h3>
-        <p>admin@zenvoice.com</p>
-      </div>
-      <nav>
-        <ul>
-          <li><a href="#" class="active">Dashboard</a></li>
-          <li><a href="#">Invoices</a></li>
-          <li><a href="#">Reports</a></li>
-          <li><a href="#">Settings</a></li>
-        </ul>
-      </nav>
-    </div>
-
-    <!-- Main Content -->
-    <div class="main-content">
-      <header>
-        <h1>Dashboard</h1>
-        <button id="logout-button">Logout</button>
-      </header>
-
-      <!-- Metrics -->
-      <div class="metrics">
-        <div class="metric-card">
-          <h2>Approved Invoices</h2>
-          <p id="approved-count">25</p>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-dark bg-primary p-2">
+        <div class="container-fluid">
+            <button class="btn btn-light">☰</button>
+            <input class="form-control search-bar" type="search" placeholder="Find...">
+            <div class="d-flex align-items-center">
+                <a href="#" class="text-white mx-2">Dashboard</a>
+                <a href="#" class="text-white mx-2">Purchase Orders</a>
+                <a href="#" class="text-white mx-2">Invoices</a>
+                <a href="#" class="text-white mx-2">Settings</a>
+                <button class="sign-in-button">🔑 Signed In</button>
+            </div>
         </div>
-        <div class="metric-card">
-          <h2>Pending Invoices</h2>
-          <p id="pending-count">10</p>
+    </nav>
+    <!-- Sidebar -->
+    <div class="d-flex">
+        <div class="sidebar d-flex flex-column align-items-start">
+            <!-- Original Buttons with Border -->
+            <div class="d-flex flex-row border-bottom">
+                <a href="#" class="text-black small-links mx-2">+ Invoice</a>
+                <a href="#" class="text-black small-links mx-2">Help</a>
+            </div>
+            
+            <!-- New Vertical Buttons -->
+            <div class="d-flex flex-column align-items-start vertical-buttons">
+                <a href="#" class="text-black small-links mx-2">Suppliers</a>
+                <a href="#" class="text-black small-links mx-2">Reports</a>
+                <a href="#" class="text-black small-links mx-2">Archives</a>
+                <a href="#" class="text-black small-links mx-2">Recent</a>
+                <a href="#" class="text-black small-links mx-2">Attachments</a>
+            </div>
         </div>
-        <div class="metric-card">
-          <h2>Rejected Invoices</h2>
-          <p id="rejected-count">5</p>
+        
+        <!-- Dashboard Content -->
+        <div class="content container mt-3">
+            <h2>Dashboard</h2>
+
+            <!-- + New Button placed here -->
+            <div class="d-flex justify-content-end align-items-start custom-mt">
+                <button class="btn btn-light ms-2" data-bs-toggle="modal" data-bs-target="#poModal">+ New</button>
+            </div>
+
+            <!-- Filter Bar -->
+            <div class="d-flex gap-2 mb-3">
+                <button class="btn btn-secondary">Filters</button>
+                <span class="badge bg-success">● Recent activity</span>
+                <span class="badge bg-warning">● Inactive for 1 hour</span>
+                <span class="badge bg-danger">● Inactive for 1 day</span>
+                <button class="btn btn-light border">Favorites only</button>
+            </div>
+            
+            <!-- Grid Layout -->
+            <div class="row">
+                <div class="col-md-6 col-lg-4 mb-3">
+                    <div class="card">
+                        <div class="card-header bg-light">🔵 Purchase Orders</div>
+                        <div class="card-body">
+                            <p><strong>Active POs (3)</strong></p>
+                            <p><a href="#">PO #12345</a></p>
+                            <p><a href="#">PO #67890</a></p>
+                            <p><a href="#">PO #11223</a></p>
+                            <button class="btn btn-primary mt-2">Create New PO</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 mb-3">
+                    <div class="card">
+                        <div class="card-header bg-light">⚫ Invoices</div>
+                        <div class="card-body">
+                            <p><strong>Pending Invoices (5)</strong></p>
+                            <p><a href="#">Invoice #A123</a></p>
+                            <p><a href="#">Invoice #A456</a></p>
+                            <p><a href="#">Invoice #A789</a></p>
+                            <button class="btn btn-primary mt-2">Create New Invoice</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 mb-3">
+                    <div class="card">
+                        <div class="card-header bg-light">🟠 Statistics</div>
+                        <div class="card-body">
+                            <p><strong>Total POs:</strong> 10</p>
+                            <p><strong>Total Invoices:</strong> 25</p>
+                            <p><strong>Pending Payments:</strong> $15,000</p>
+                            <p><strong>Completed Payments:</strong> $45,000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Log Transfer Progress -->
+            <div class="progress mt-4">
+                <div class="progress-bar bg-success" style="width: 50%;">50%</div>
+            </div>
+            <p class="mt-2">Data usage: <strong>500 GB of 1 TB used</strong></p>
         </div>
-      </div>
-
-      <!-- Recent Invoices Table -->
-      <div class="recent-invoices">
-        <h2>Recent Invoices</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Invoice ID</th>
-              <th>Date</th>
-              <th>Amount</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>#1001</td>
-              <td>2023-10-01</td>
-              <td>R1,2000 000</td>
-              <td><span class="status approved">Approved</span></td>
-            </tr>
-            <tr>
-              <td>#1002</td>
-              <td>2023-10-02</td>
-              <td>R800 000</td>
-              <td><span class="status pending">Pending</span></td>
-            </tr>
-            <tr>
-              <td>#1003</td>
-              <td>2023-10-03</td>
-              <td>R1,500 000</td>
-              <td><span class="status rejected">Rejected</span></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- Action Buttons -->
-      <div class="action-buttons">
-        <button id="create-invoice">Create New Invoice</button>
-        <button id="export-data">Export Data</button>
-      </div>
     </div>
-  </div>
-  <script src="script.js"></script>
+
+    <!-- Modal for Purchase Order Registration -->
+    <div class="modal fade" id="poModal" tabindex="-1" aria-labelledby="poModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="poModalLabel">Register Purchase Order</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="companyName" class="form-label">Supplier</label>
+                            <input type="text" class="form-control" id="companyName">
+                        </div>
+                        <div class="mb-3">
+                            <label for="poNumber" class="form-label">Order Number</label>
+                            <input type="text" class="form-control" id="poNumber">
+                        </div>
+                        <div class="mb-3">
+                            <label for="amount" class="form-label">Amount</label>
+                            <input type="number" class="form-control" id="amount">
+                        </div>
+                        <div class="mb-3">
+                            <label for="poDate" class="form-label">Date</label>
+                            <input type="date" class="form-control" id="poDate">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
