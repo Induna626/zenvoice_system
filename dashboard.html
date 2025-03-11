@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Zenvoice - Dashboard</title>
@@ -43,63 +42,21 @@
 <body>
   <div class="dashboard-container">
     <!-- Left Pane -->
-<div class="left-pane">
-  <!-- User Profile Section -->
-  <div class="profile-section">
-    <img src="profile.png" alt="Profile Picture" class="profile-picture">
-    <h3>Admin</h3>
-    <p>admin@zenvoice.com</p>
-  </div>
-
-  <!-- Navigation Links -->
-  <nav>
-    <ul>
-      <li>
-        <a href="#" class="active">
-          <i class="fas fa-tachometer-alt"></i>
-          <span>Dashboard</span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <i class="fas fa-file-invoice"></i>
-          <span>Invoices</span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <i class="fas fa-chart-bar"></i>
-          <span>Reports</span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <i class="fas fa-cog"></i>
-          <span>Settings</span>
-        </a>
-      </li>
-    </ul>
-  </nav>
-
-  <!-- Collapsible Section (Example) -->
-  <div class="collapsible-section">
-    <div class="collapsible-header">
-      <i class="fas fa-users"></i>
-      <span>Team</span>
-      <i class="fas fa-chevron-down"></i>
+    <div class="left-pane">
+      <div class="profile-section">
+        <img src="profile.png" alt="Profile Picture" class="profile-picture">
+        <h3>Admin</h3>
+        <p>admin@zenvoice.com</p>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#" class="active">Dashboard</a></li>
+          <li><a href="#">Invoices</a></li>
+          <li><a href="#">Reports</a></li>
+          <li><a href="#">Settings</a></li>
+        </ul>
+      </nav>
     </div>
-    <div class="collapsible-content">
-      <a href="#">
-        <i class="fas fa-user-plus"></i>
-        <span>Add Member</span>
-      </a>
-      <a href="#">
-        <i class="fas fa-user-edit"></i>
-        <span>Edit Roles</span>
-      </a>
-    </div>
-  </div>
-</div>
 
     <!-- Main Content -->
     <div class="main-content">
@@ -122,50 +79,40 @@
           <h2>Rejected Invoices</h2>
           <p id="rejected-count">5</p>
         </div>
-      </div>
-
-      <!-- Recent Invoices Table -->
-      <div class="recent-invoices">
-        <h2>Recent Invoices</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Invoice ID</th>
-              <th>Date</th>
-              <th>Amount</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>#1001</td>
-              <td>2023-10-01</td>
-              <td>R1,2000 000</td>
-              <td><span class="status approved">Approved</span></td>
-            </tr>
-            <tr>
-              <td>#1002</td>
-              <td>2023-10-02</td>
-              <td>R800 000</td>
-              <td><span class="status pending">Pending</span></td>
-            </tr>
-            <tr>
-              <td>#1003</td>
-              <td>2023-10-03</td>
-              <td>R1,500 000</td>
-              <td><span class="status rejected">Rejected</span></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- Action Buttons -->
-      <div class="action-buttons">
-        <button id="create-invoice">Create New Invoice</button>
-        <button id="export-data">Export Data</button>
-      </div>
     </div>
-  </div>
-  <script src="script.js"></script>
+
+    <!-- Modal for Purchase Order Registration -->
+    <div class="modal fade" id="poModal" tabindex="-1" aria-labelledby="poModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="poModalLabel">Register Purchase Order</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="companyName" class="form-label">Supplier</label>
+                            <input type="text" class="form-control" id="companyName">
+                        </div>
+                        <div class="mb-3">
+                            <label for="poNumber" class="form-label">Order Number</label>
+                            <input type="text" class="form-control" id="poNumber">
+                        </div>
+                        <div class="mb-3">
+                            <label for="amount" class="form-label">Amount</label>
+                            <input type="number" class="form-control" id="amount">
+                        </div>
+                        <div class="mb-3">
+                            <label for="poDate" class="form-label">Date</label>
+                            <input type="date" class="form-control" id="poDate">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
