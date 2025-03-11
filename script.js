@@ -194,3 +194,21 @@ document.getElementById('login-form').addEventListener('submit', function (event
     // Redirect to dashboard
     window.location.href = 'dashboard.html';
   });
+
+  // Collapsible Sections
+document.querySelectorAll('.collapsible-header').forEach((header) => {
+  header.addEventListener('click', function () {
+    const section = this.parentElement;
+    section.classList.toggle('active');
+  });
+});
+
+// Logout Functionality
+document.getElementById('logout-button').addEventListener('click', function () {
+  // Clear "Remember Me" data
+  localStorage.removeItem('username');
+  localStorage.removeItem('password');
+
+  // Redirect to login page
+  window.location.href = 'index.html';
+});
